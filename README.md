@@ -1,12 +1,6 @@
 Akka examples in Java
 ==============
 
-A few examples using Akka with Java. These examples have basic structures in common:
-
-* Coded in Java.
-* Clustered Akka setup.
-* Logback / SL4J Logger. Log file is under the root path: ``/logs``
-* Akka configuration has most logging options turned on. (chatty)
 
 运行每个项目下的org.royrusso.app.System的main方法
 All examples are runnable from within your IDE, by executing the ``Main`` method in the corresponding ``org.royrusso.app.System`` class.
@@ -14,7 +8,9 @@ All examples are runnable from within your IDE, by executing the ``Main`` method
 Simple Akka Example
 ------------------
 
-``/simple`` :: The simplest of Akka examples. Creates an Actor that processes a command.
+``/simple`` ::
+ 1.hello world：有发送和响应
+ 2.命令模式
 
 Akka Parent-Child Actors
 ------------------
