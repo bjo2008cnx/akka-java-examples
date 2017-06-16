@@ -16,6 +16,7 @@ public class HelloWorld extends UntypedActor {
 
     @Override
     public void onReceive(Object msg) {
+        System.out.println("sender: "+getSender().toString());
         if (msg == Greeter.Msg.DONE) {
             System.out.println("DONE is received.");
             // when the greeter is done, stop this actor and with it the application
