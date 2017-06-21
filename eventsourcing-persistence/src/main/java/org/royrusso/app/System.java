@@ -41,15 +41,18 @@ public class System {
 
         Thread.sleep(5000);
 
-        final ActorRef actorRef = actorSystem.actorOf(Props.create(BaseProcessor.class), "eventsourcing-processor");
+        final ActorRef processor = actorSystem.actorOf(Props.create(BaseProcessor.class), "eventsourcing-processor");
 
-        actorRef.tell(new Command("CMD 1"), null);
-        actorRef.tell(new Command("CMD 2"), null);
-        actorRef.tell(new Command("CMD 3"), null);
-        actorRef.tell("snapshot", null);
-        actorRef.tell(new Command("CMD 4"), null);
-        actorRef.tell(new Command("CMD 5"), null);
-        actorRef.tell("printstate", null);
+        processor.tell(new Command("CMD 1"), null);
+        processor.tell(new Command("CMD 2"), null);
+        processor.tell(new Command("CMD 3"), null);
+
+        processor.tell("snapshot", null);
+
+        processor.tell(new Command("CMD 4"), null);
+        processor.tell(new Command("CMD 5"), null);
+
+        processor.tell("printstate", null);
 
         Thread.sleep(5000);
 

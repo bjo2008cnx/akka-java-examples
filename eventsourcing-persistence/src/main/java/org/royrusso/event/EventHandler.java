@@ -35,6 +35,6 @@ public class EventHandler extends UntypedActor {
     @Override
     public void onReceive(Object msg) throws Exception {
 
-        log.info("Handled Event: " + msg);
+        log.info("处理消息: " + msg);
     }
 }
