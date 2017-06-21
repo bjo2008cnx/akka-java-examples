@@ -4,7 +4,7 @@ import akka.actor.UntypedActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
-public class ChildActor extends UntypedActor {
+public class Child2Actor extends UntypedActor {
 
     LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
@@ -15,7 +15,7 @@ public class ChildActor extends UntypedActor {
 
     @Override
     public void onReceive(Object msg) {
-        log.info("子：收到消息: " + msg);
+        log.info("子2：收到消息: " + msg);
     }
 
 }

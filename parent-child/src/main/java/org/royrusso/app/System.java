@@ -40,12 +40,12 @@ public class System {
 
         final ActorRef actorRef = actorSystem.actorOf(Props.create(ParentActor.class), "parent-actor");
 
-        actorRef.tell(new Command("CMD 1"), null);
-        actorRef.tell(new Command("CMD 2"), null);
-        actorRef.tell(new Command("CMD 3"), null);
+        actorRef.tell(new Command("CMD 1", 1, 1), null);
+        actorRef.tell(new Command("CMD 2", 2, 1), null);
+        actorRef.tell(new Command("CMD 3", 3, 1), null);
         actorRef.tell("echo", null);
-        actorRef.tell(new Command("CMD 4"), null);
-        actorRef.tell(new Command("CMD 5"), null);
+        actorRef.tell(new Command("CMD 4", 4 ,2), null);
+        actorRef.tell(new Command("CMD 5", 5, 2), null);
 
         Thread.sleep(5000);
 
