@@ -9,7 +9,7 @@ Simple Akka Example
 ------------------
 
 ``/simple`` ::
- 1.hello world：有发送和响应
+ 1.hello：有发送和响应
  2.命令模式
 
 Akka Parent-Child Actors
