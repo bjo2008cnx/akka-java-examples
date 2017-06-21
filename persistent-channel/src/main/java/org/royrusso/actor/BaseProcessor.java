@@ -56,16 +56,11 @@ public class BaseProcessor extends UntypedActor {
 
     @Override
     public void onReceive(Object msg) {
-
         if (msg instanceof Persistent) {
-
-            log.info("Send to Channel: " + ((Persistent) msg).payload());
-
+            log.info("发送到 Channel: " + ((Persistent) msg).payload());
             channel.tell(Deliver.create(((Persistent) msg).withPayload(((Persistent) msg).payload()), receiver.path()), getSelf());
         } else if (msg instanceof ChannelReply) {
-            log.info(msg.toString());
+            log.info("ChannelReply回复:: "+msg.toString());
         }
     }
-
-
 }

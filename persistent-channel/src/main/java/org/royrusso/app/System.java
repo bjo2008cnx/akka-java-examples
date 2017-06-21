@@ -28,7 +28,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Main runtime class.
+ * 演示场景：处理器发送命令，接收者接收到消息后进行处理并且对发送方发送消息确认表明已经成功收到消息。
+ * 如果没有发送确认则表明该消息没有被接收并正确处理。失败消息会到达死信箱，系统下次启动时后继续发送死信箱中的发送失败的消息。
  */
 public class System {
 
@@ -43,7 +44,7 @@ public class System {
         final ActorRef receiver = actorSystem.actorOf(Props.create(Receiver.class));
         final ActorRef processor = actorSystem.actorOf(Props.create(BaseProcessor.class, receiver), "channel-processor");
 
-
+        //发送消息
         for (int i = 0; i < 10; i++) {
             processor.tell(Persistent.create(new Command("CMD " + i)), null);
         }
